@@ -1,0 +1,48 @@
+@use "tailwindcss";
+
+@use "@repo/fonts/chivo";
+@use "@repo/fonts/chivo-mono";
+
+// core tokens
+:root {
+  // fonts
+  --font-family-sans: "Chivo", system-ui, sans-serif;
+  --font-family-mono: "Chivo Mono", monospace;
+}
+
+// light mode tokens
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+// dark mode tokens
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+html {
+  @apply antialiased;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background: var(--background);
+  color: var(--foreground);
+  // color: var(--color-text-solid-primary);
+  // background: var(--color-background-solid-primary);
+}
+
+code,
+pre {
+  font-family: var(--font-family-mono);
+}
+
+// tailwind config
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-family-sans);
+  --font-mono: var(--font-family-mono);
+}
