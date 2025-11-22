@@ -6,6 +6,7 @@ export default defineConfig({
     input: "src/components/input/input.tsx",
     separator: "src/components/separator/separator.tsx",
     label: "src/components/label/label.tsx",
+    badge: "src/components/badge/badge.tsx",
     styles: "src/styles.css",
   },
   clean: true,

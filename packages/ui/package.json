@@ -27,6 +27,11 @@
       "import": "./dist/label.js",
       "require": "./dist/label.cjs"
     },
+    "./badge": {
+      "types": "./dist/badge.d.ts",
+      "import": "./dist/badge.js",
+      "require": "./dist/badge.cjs"
+    },
     "./styles": "./dist/styles.css"
   },
   "scripts": {

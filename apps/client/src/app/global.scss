@@ -48,3 +48,9 @@ pre {
   --font-sans: var(--font-family-sans);
   --font-mono: var(--font-family-mono);
 } */
+
+@layer utilities {
+  .locker {
+    @apply w-full mx-auto max-w-4xl md:max-w-7xl px-4 sm:px-6 md:px-8;
+  }
+}
