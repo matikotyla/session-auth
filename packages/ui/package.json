@@ -12,6 +12,21 @@
       "import": "./dist/button.js",
       "require": "./dist/button.cjs"
     },
+    "./input": {
+      "types": "./dist/input.d.ts",
+      "import": "./dist/input.js",
+      "require": "./dist/input.cjs"
+    },
+    "./separator": {
+      "types": "./dist/separator.d.ts",
+      "import": "./dist/separator.js",
+      "require": "./dist/separator.cjs"
+    },
+    "./label": {
+      "types": "./dist/label.d.ts",
+      "import": "./dist/label.js",
+      "require": "./dist/label.cjs"
+    },
     "./styles": "./dist/styles.css"
   },
   "scripts": {
@@ -19,6 +34,8 @@
     "lint": "eslint src/"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.1.17",
     "class-variance-authority": "^0.7.1",
@@ -34,13 +51,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@repo/eslint-config": "*",
+    "@repo/prettier-config": "*",
+    "@repo/tailwind-config": "*",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "@repo/eslint-config": "*",
-    "@repo/prettier-config": "*",
-    "@repo/tailwind-config": "*",
     "autoprefixer": "^10.4.22",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^9.39.1",

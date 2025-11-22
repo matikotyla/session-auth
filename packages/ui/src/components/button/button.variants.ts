@@ -8,11 +8,9 @@ export const ButtonVariants = cva(styles.root, {
       // destructive:
       //   "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
       outlined: styles.outlined,
-      // secondary:
-      //   "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-      // ghost:
-      //   "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-      // link: "text-primary underline-offset-4 hover:underline",
+      tonal: styles.tonal,
+      soft: styles.soft,
+      link: styles.link,
     },
     size: {
       sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
