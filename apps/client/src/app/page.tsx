@@ -1,6 +1,6 @@
 import { Badge } from "@repo/ui/badge";
 import { Button } from "@repo/ui/button";
-import { Blocks, Key, Layers } from "lucide-react";
+import { ArrowRight, Blocks, Key, Layers } from "lucide-react";
 
 export default function Home() {
   return (
@@ -13,6 +13,7 @@ export default function Home() {
               <Badge variant="outline">
                 <Layers />
                 Introducing custom automations
+                <ArrowRight />
               </Badge>
               <div className="flex flex-col items-center justify-center gap-5">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal tracking-tighter text-balance text-center text-foreground">

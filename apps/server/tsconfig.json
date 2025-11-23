@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "lib": ["ES2024"],
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "dist",
+    "rootDir": "./",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2024",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "compileOnSave": true,
+  "include": ["src", "env.d.ts", "global.d.ts", "tsup.config.ts"],
+  "exclude": ["dist", "build", "node_modules"]
+}
