@@ -1,9 +1,9 @@
-import { type Auth } from "@/auth";
-import { GlobalKey } from "@/keys";
+import { APIError } from "better-auth";
+import { fromNodeHeaders } from "better-auth/node";
 import { Request, Response } from "express";
 import { inject, injectable } from "tsyringe";
-import { fromNodeHeaders } from "better-auth/node";
-import { APIError } from "better-auth";
+import { type Auth } from "@/auth";
+import { GlobalKey } from "@/keys";
 
 @injectable()
 export class AuthController {
