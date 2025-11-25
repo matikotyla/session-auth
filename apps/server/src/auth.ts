@@ -1,8 +1,8 @@
 import { betterAuth } from "better-auth";
-import { Express } from "express";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
-import { MongoClient } from "mongodb";
 import { toNodeHandler } from "better-auth/node";
+import { Express } from "express";
+import { MongoClient } from "mongodb";
 
 export const configureAuth = (app: Express) => {
   if (!process.env.MONGO_URL) {
@@ -27,6 +27,7 @@ export const configureAuth = (app: Express) => {
       autoSignIn: false,
       enabled: true,
     },
+    trustedOrigins: ["http://localhost:3000"],
   });
 
   app.all("/api/auth/*splat", toNodeHandler(auth));

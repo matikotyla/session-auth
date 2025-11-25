@@ -1,6 +1,7 @@
 "use client";
 
 import { GithubLogo } from "@/assets/logos";
+import { AuthClient } from "@/clients";
 import { AuthSchema } from "@/schemas";
 import { ApiType, type AuthType } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,11 +14,12 @@ import axios, { AxiosError } from "axios";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 const Page: FunctionComponent = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const {
     control,
@@ -53,9 +55,10 @@ const Page: FunctionComponent = () => {
       router.push("/login");
     },
     onError: (error) => {
+      console.log("react query failure", error);
       if (error instanceof AxiosError) {
         setError("root.server", {
-          type: "400",
+          type: "server",
           message: error.response?.data.message,
         });
       } else {
@@ -69,7 +72,29 @@ const Page: FunctionComponent = () => {
     name,
     password,
   }) => {
-    mutate({ email, name, password });
+    // mutate({ email, name, password });
+
+    AuthClient.signUp.email(
+      {
+        email,
+        name,
+        password,
+      },
+      {
+        onSuccess: ({ data }) => {
+          console.log("better auth success", data);
+          router.push("/login");
+        },
+        onError: ({ error }) => {
+          setError("root.server", {
+            type: "server",
+            message: error.message,
+          });
+        },
+        onRequest: () => setLoading(true),
+        onResponse: () => setLoading(false),
+      }
+    );
   };
 
   return (
@@ -155,8 +180,8 @@ const Page: FunctionComponent = () => {
               {errors.root?.server.message}
             </p>
           )}
-          <Button type="submit" disabled={!isValid || !!isPending}>
-            {!!isPending && <Loader2 className="animate-spin" />}
+          <Button type="submit" disabled={!isValid || !!loading}>
+            {!!loading && <Loader2 className="animate-spin" />}
             Sign up with email
           </Button>
         </form>

@@ -1,12 +1,13 @@
 import "reflect-metadata";
 
 import dotenvx from "@dotenvx/dotenvx";
+import cookieParser from "cookie-parser";
+import cors from "cors";
 import express from "express";
 import path from "path";
-import cookieParser from "cookie-parser";
 
-import { registerDependencies, registerRoutes, connectDatabase } from "@/utils";
 import { configureAuth } from "@/auth";
+import { connectDatabase, registerDependencies, registerRoutes } from "@/utils";
 
 const env = process.env.NODE_ENV || "dev";
 
@@ -19,6 +20,13 @@ const port = process.env.PORT ?? "4000";
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 connectDatabase();
 const auth = configureAuth(app);
